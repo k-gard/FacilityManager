@@ -1,9 +1,9 @@
 package com.gardikiotis.FacilityManager.controllers;
 
 import com.gardikiotis.FacilityManager.models.Company;
-import com.gardikiotis.FacilityManager.models.Error;
-import com.gardikiotis.FacilityManager.models.CompanyResponse;
-import com.gardikiotis.FacilityManager.models.GenericResponse;
+import com.gardikiotis.FacilityManager.responses.Error;
+import com.gardikiotis.FacilityManager.responses.CompanyResponse;
+import com.gardikiotis.FacilityManager.responses.GenericResponse;
 import com.gardikiotis.FacilityManager.services.CompanyService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

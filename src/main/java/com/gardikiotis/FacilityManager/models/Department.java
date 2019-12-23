@@ -5,7 +5,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import java.util.List;
 @Entity
-public abstract class Department {
+public class Department {
     @Id
     private long id;
     private String name ;

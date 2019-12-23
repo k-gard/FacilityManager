@@ -1,7 +1,7 @@
 package com.gardikiotis.FacilityManager.mappers;
 
 import com.gardikiotis.FacilityManager.models.Company;
-import com.gardikiotis.FacilityManager.models.CompanyResponse;
+import com.gardikiotis.FacilityManager.responses.CompanyResponse;
 import org.springframework.stereotype.Component;
 
 @Component

@@ -1,10 +1,10 @@
 package com.gardikiotis.FacilityManager.services;
 
-import com.gardikiotis.FacilityManager.models.Error;
+import com.gardikiotis.FacilityManager.responses.Error;
 import com.gardikiotis.FacilityManager.mappers.CompanyMapper;
 import com.gardikiotis.FacilityManager.models.Company;
-import com.gardikiotis.FacilityManager.models.CompanyResponse;
-import com.gardikiotis.FacilityManager.models.GenericResponse;
+import com.gardikiotis.FacilityManager.responses.CompanyResponse;
+import com.gardikiotis.FacilityManager.responses.GenericResponse;
 import com.gardikiotis.FacilityManager.repositories.CompanyRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ReflectionUtils;

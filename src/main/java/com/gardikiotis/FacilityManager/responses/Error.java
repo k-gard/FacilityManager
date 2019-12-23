@@ -1,4 +1,4 @@
-package com.gardikiotis.FacilityManager.models;
+package com.gardikiotis.FacilityManager.responses;
 
 public class Error {
 

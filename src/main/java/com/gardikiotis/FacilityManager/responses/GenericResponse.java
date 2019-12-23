@@ -1,5 +1,7 @@
-package com.gardikiotis.FacilityManager.models;
+package com.gardikiotis.FacilityManager.responses;
 
+
+import com.gardikiotis.FacilityManager.responses.Error;
 
 public class GenericResponse<T> {
 
