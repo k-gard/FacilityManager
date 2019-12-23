@@ -3,6 +3,7 @@ package com.gardikiotis.FacilityManager.controllers;
 import com.gardikiotis.FacilityManager.responses.DepartmentResponse;
 import com.gardikiotis.FacilityManager.responses.Error;
 import com.gardikiotis.FacilityManager.models.Department;
+import com.gardikiotis.FacilityManager.responses.GenericResponse;
 import com.gardikiotis.FacilityManager.services.DepartmentService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
