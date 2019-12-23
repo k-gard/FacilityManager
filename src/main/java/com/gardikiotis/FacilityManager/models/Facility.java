@@ -7,6 +7,7 @@ public class Facility {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long Id;
+    private String facilityName;
     @ManyToOne
     private Customer owner;
     @OneToMany
@@ -14,13 +15,22 @@ public class Facility {
     @OneToMany
     private List<Equipment> equipmentList;
 
-    public Facility(Customer owner, List<Building> buildings, List<Equipment> equipmentList) {
+    public Facility(String facilityName,Customer owner, List<Building> buildings, List<Equipment> equipmentList) {
+        this.facilityName=facilityName;
         this.owner = owner;
         this.buildings = buildings;
         this.equipmentList = equipmentList;
     }
 
     public Facility() {
+    }
+
+    public String getFacilityName() {
+        return facilityName;
+    }
+
+    public void setFacilityName(String facilityName) {
+        this.facilityName = facilityName;
     }
 
     public long getId() {
