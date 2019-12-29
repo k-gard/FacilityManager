@@ -72,6 +72,14 @@ public class Employee {
         return employeeType;
     }
 
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
+    }
+
     public void setEmployeeType(String employeeType) {
         this.employeeType = employeeType;
     }

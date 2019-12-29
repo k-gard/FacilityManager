@@ -9,14 +9,17 @@ public class DepartmentResponse {
     private long id;
     private String name ;
     private String description ;
- //   private List<Employee> employees;
+    private List<EmployeeResponse> employees;
 
-    public DepartmentResponse(long id, String name, String description/*, List<Employee> employees*/) {
+    public DepartmentResponse(long id, String name, String description, List<EmployeeResponse> employees) {
         this.id = id;
         this.name = name;
         this.description = description;
-    //    this.employees = employees;
+        this.employees = employees;
+
     }
+
+
 }
 
 

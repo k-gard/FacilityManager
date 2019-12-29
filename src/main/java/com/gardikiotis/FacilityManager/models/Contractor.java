@@ -10,12 +10,12 @@ public class Contractor {
     @OneToOne
     private Company company ;
 
-    Contractor(Company company) {
+    public Contractor(Company company) {
         this.company = company;
     }
 
 
-    Contractor() {
+    public Contractor() {
     }
 
 

@@ -13,7 +13,16 @@ public class CustomerMapper {
     public CustomerResponse mapCustomerToCustomerResponse(Customer customer) {
         return new CustomerResponse(
                 customer.getId(),
-                new CompanyResponse(customer.getCompany().getId(), customer.getCompany().getName())
+         new CompanyResponse(
+                customer.getCompany().getId(),
+                customer.getCompany().getName(),
+                customer.getCompany().getAfm(),
+                customer.getCompany().getAddressStreet(),
+                customer.getCompany().getAddressNumber(),
+                customer.getCompany().getAddressPostCode(),
+                customer.getCompany().getPhoneNumber(),
+                customer.getCompany().getEmail()
+        )
 
         );
     }

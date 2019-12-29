@@ -6,10 +6,27 @@ import org.springframework.stereotype.Component;
 public class CompanyResponse {
     private long id;
     private String name;
+    private long afm;
+    private String addressStreet ;
+    private String addressNumber ;
+    private String addressPostCode ;
+    private long phoneNumber ;
+    private String email;
 
-    public CompanyResponse(long id, String name) {
+    public CompanyResponse(long id, String name, long afm, String addressStreet, String addressNumber, String addressPostCode, long phoneNumber, String email) {
         this.id = id;
         this.name = name;
+        this.afm = afm;
+        this.addressStreet = addressStreet;
+        this.addressNumber = addressNumber;
+        this.addressPostCode = addressPostCode;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+    }
+    public void shortCompanyResponse(long id, String name) {
+        this.id = id;
+        this.name = name;
+
     }
 
     public long getId() {
@@ -26,5 +43,53 @@ public class CompanyResponse {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public long getAfm() {
+        return afm;
+    }
+
+    public void setAfm(long afm) {
+        this.afm = afm;
+    }
+
+    public String getAddressStreet() {
+        return addressStreet;
+    }
+
+    public void setAddressStreet(String addressStreet) {
+        this.addressStreet = addressStreet;
+    }
+
+    public String getAddressNumber() {
+        return addressNumber;
+    }
+
+    public void setAddressNumber(String addressNumber) {
+        this.addressNumber = addressNumber;
+    }
+
+    public String getAddressPostCode() {
+        return addressPostCode;
+    }
+
+    public void setAddressPostCode(String addressPostCode) {
+        this.addressPostCode = addressPostCode;
+    }
+
+    public long getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(long phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
