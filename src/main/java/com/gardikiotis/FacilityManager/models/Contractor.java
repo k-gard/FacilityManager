@@ -3,7 +3,7 @@ package com.gardikiotis.FacilityManager.models;
 import javax.persistence.*;
 
 @Entity
-public abstract class Contractor {
+public class Contractor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id ;

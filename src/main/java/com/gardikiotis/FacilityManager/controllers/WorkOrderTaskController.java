@@ -1,50 +1,50 @@
 package com.gardikiotis.FacilityManager.controllers;
 
-import com.gardikiotis.FacilityManager.models.Company;
+import com.gardikiotis.FacilityManager.models.WorkOrderTask;
 import com.gardikiotis.FacilityManager.responses.Error;
-import com.gardikiotis.FacilityManager.responses.CompanyResponse;
+import com.gardikiotis.FacilityManager.responses.WorkOrderTaskResponse;
 import com.gardikiotis.FacilityManager.responses.GenericResponse;
-import com.gardikiotis.FacilityManager.services.CompanyService;
+import com.gardikiotis.FacilityManager.services.WorkOrderTaskService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-public class CompanyController {
+public class WorkOrderTaskController {
 
 
-    private CompanyService service;
+    private WorkOrderTaskService service;
 
-    public CompanyController(CompanyService service){
+    public WorkOrderTaskController(WorkOrderTaskService service){
         this.service=service;
     }
 
-    @GetMapping("/allCompanies")
-    public ResponseEntity getAllCompanies() {
-        if (service.getAllCompanies().getError()!= null) {
+    @GetMapping("/allWorkOrderTasks")
+    public ResponseEntity getAllWorkOrderTasks() {
+        if (service.getAllWorkOrderTasks().getError()!= null) {
             return new ResponseEntity(
-                    service.getAllCompanies().getError(),
+                    service.getAllWorkOrderTasks().getError(),
                     null,
                     HttpStatus.INTERNAL_SERVER_ERROR);
         }
         return new ResponseEntity<>(
-                service.getAllCompanies().getData(),
+                service.getAllWorkOrderTasks().getData(),
                 null,
                 HttpStatus.OK);
     }
 
-    @PostMapping("/createCompany")
-    public ResponseEntity createCompany(@RequestBody Company company){
-        GenericResponse<CompanyResponse> response= service.createCompany(company);
+    @PostMapping("/createWorkOrderTask")
+    public ResponseEntity createWorkOrderTask(@RequestBody WorkOrderTask WorkOrderTask){
+        GenericResponse<WorkOrderTaskResponse> response= service.createWorkOrderTask(WorkOrderTask);
         if(response.getError()!=null){
             return new ResponseEntity<>(response.getError(),null,HttpStatus.INTERNAL_SERVER_ERROR);
         }
         return new ResponseEntity<>(response.getData(),null,HttpStatus.CREATED);
     }
 
-    @PatchMapping("/updateCompany/{companyId}")
-    public ResponseEntity updateCompany(@PathVariable long companyId , @RequestBody Company company){
-        GenericResponse<CompanyResponse> response = service.updateCompany(companyId, company);
+    @PatchMapping("/updateWorkOrderTask/{WorkOrderTaskId}")
+    public ResponseEntity updateWorkOrderTask(@PathVariable long WorkOrderTaskId , @RequestBody WorkOrderTask WorkOrderTask){
+        GenericResponse<WorkOrderTaskResponse> response = service.updateWorkOrderTask(WorkOrderTaskId, WorkOrderTask);
         if(response.getError()!=null){
             return new ResponseEntity<>(response.getError(),null,HttpStatus.INTERNAL_SERVER_ERROR);
         }

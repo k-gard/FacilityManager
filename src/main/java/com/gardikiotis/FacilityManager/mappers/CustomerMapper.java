@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class CustomerMapper {
-
+    private CompanyMapper mapper;
     public CustomerResponse mapCustomerToCustomerResponse(Customer customer) {
         return new CustomerResponse(
                 customer.getId(),

@@ -1,24 +1,25 @@
-package com.gardikiotis.FacilityManager.models;
+package com.gardikiotis.FacilityManager.responses;
+
+import com.gardikiotis.FacilityManager.models.Employee;
+import com.gardikiotis.FacilityManager.models.Subcontractor;
+import com.gardikiotis.FacilityManager.models.Task;
 
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
-@Entity
-public class WorkOrderTask {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+public class WorkOrderTaskResponse {
+
     private long id;
-    @OneToMany
     private List<Employee> employeeList;
-    @OneToMany
     private List<Subcontractor> subcontractorList;
-    @OneToOne
     private Task task;
     private Date startingTime;
     private Date endingTime;
     private int hourDuration;
 
-    public WorkOrderTask(List<Employee> employeeList, List<Subcontractor> subcontractorList, Task task, Date startingTime, Date endingTime, int hourDuration) {
+    public WorkOrderTaskResponse(long id, List<Employee> employeeList, List<Subcontractor> subcontractorList, Task task, Date startingTime, Date endingTime, int hourDuration) {
+        this.id = id;
         this.employeeList = employeeList;
         this.subcontractorList = subcontractorList;
         this.task = task;
@@ -27,15 +28,12 @@ public class WorkOrderTask {
         this.hourDuration = hourDuration;
     }
 
-
-
-
-    public List<Subcontractor> getSubcontractorList() {
-        return subcontractorList;
+    public long getId() {
+        return id;
     }
 
-    public void setSubcontractorList(List<Subcontractor> subcontractorList) {
-        this.subcontractorList = subcontractorList;
+    public void setId(long id) {
+        this.id = id;
     }
 
     public List<Employee> getEmployeeList() {
@@ -44,6 +42,14 @@ public class WorkOrderTask {
 
     public void setEmployeeList(List<Employee> employeeList) {
         this.employeeList = employeeList;
+    }
+
+    public List<Subcontractor> getSubcontractorList() {
+        return subcontractorList;
+    }
+
+    public void setSubcontractorList(List<Subcontractor> subcontractorList) {
+        this.subcontractorList = subcontractorList;
     }
 
     public Task getTask() {
@@ -78,11 +84,4 @@ public class WorkOrderTask {
         this.hourDuration = hourDuration;
     }
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
 }

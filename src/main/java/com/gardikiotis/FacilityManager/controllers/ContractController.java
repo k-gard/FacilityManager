@@ -1,50 +1,50 @@
 package com.gardikiotis.FacilityManager.controllers;
 
-import com.gardikiotis.FacilityManager.models.Company;
+import com.gardikiotis.FacilityManager.models.Contract;
 import com.gardikiotis.FacilityManager.responses.Error;
-import com.gardikiotis.FacilityManager.responses.CompanyResponse;
+import com.gardikiotis.FacilityManager.responses.ContractResponse;
 import com.gardikiotis.FacilityManager.responses.GenericResponse;
-import com.gardikiotis.FacilityManager.services.CompanyService;
+import com.gardikiotis.FacilityManager.services.ContractService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-public class CompanyController {
+public class ContractController {
 
 
-    private CompanyService service;
+    private ContractService service;
 
-    public CompanyController(CompanyService service){
+    public ContractController(ContractService service){
         this.service=service;
     }
 
-    @GetMapping("/allCompanies")
-    public ResponseEntity getAllCompanies() {
-        if (service.getAllCompanies().getError()!= null) {
+    @GetMapping("/allContracts")
+    public ResponseEntity getAllContracts() {
+        if (service.getAllContracts().getError()!= null) {
             return new ResponseEntity(
-                    service.getAllCompanies().getError(),
+                    service.getAllContracts().getError(),
                     null,
                     HttpStatus.INTERNAL_SERVER_ERROR);
         }
         return new ResponseEntity<>(
-                service.getAllCompanies().getData(),
+                service.getAllContracts().getData(),
                 null,
                 HttpStatus.OK);
     }
 
-    @PostMapping("/createCompany")
-    public ResponseEntity createCompany(@RequestBody Company company){
-        GenericResponse<CompanyResponse> response= service.createCompany(company);
+    @PostMapping("/createContract")
+    public ResponseEntity createContract(@RequestBody Contract Contract){
+        GenericResponse<ContractResponse> response= service.createContract(Contract);
         if(response.getError()!=null){
             return new ResponseEntity<>(response.getError(),null,HttpStatus.INTERNAL_SERVER_ERROR);
         }
         return new ResponseEntity<>(response.getData(),null,HttpStatus.CREATED);
     }
 
-    @PatchMapping("/updateCompany/{companyId}")
-    public ResponseEntity updateCompany(@PathVariable long companyId , @RequestBody Company company){
-        GenericResponse<CompanyResponse> response = service.updateCompany(companyId, company);
+    @PatchMapping("/updateContract/{ContractId}")
+    public ResponseEntity updateContract(@PathVariable long ContractId , @RequestBody Contract Contract){
+        GenericResponse<ContractResponse> response = service.updateContract(ContractId, Contract);
         if(response.getError()!=null){
             return new ResponseEntity<>(response.getError(),null,HttpStatus.INTERNAL_SERVER_ERROR);
         }

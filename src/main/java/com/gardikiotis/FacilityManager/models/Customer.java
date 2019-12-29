@@ -1,29 +1,51 @@
 package com.gardikiotis.FacilityManager.models;
 
+
+
 import javax.persistence.*;
 import java.util.List;
 @Entity
-public class Customer extends Contractor {
+public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @OneToMany
     private List<Facility> facilityList;
-    public Customer(Company company,List<Facility> facilities){
-        super(company);
+    @OneToOne
+    private Contractor contractor;
+    @OneToOne
+    private Company company;
+    public Customer(Company company,List<Facility> facilities,Contractor contractor){
+        this.contractor=contractor;
         this.facilityList=facilities;
+        this.company=company;
     }
 
     public Customer(){
         super();
     }
 
-    @Override
+
     public long getId() {
         return id;
     }
 
-    @Override
+    public Contractor getContractor() {
+        return contractor;
+    }
+
+    public void setContractor(Contractor contractor) {
+        this.contractor = contractor;
+    }
+
+    public Company getCompany() {
+        return company;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
+    }
+
     public void setId(long id) {
         this.id = id;
     }

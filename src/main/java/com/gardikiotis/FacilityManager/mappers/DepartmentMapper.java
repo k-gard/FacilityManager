@@ -13,7 +13,6 @@ public class DepartmentMapper {
                 department.getId(),
                 department.getName(),
                 department.getDescription()
-               // department.getEmployees()
         );
     }
 

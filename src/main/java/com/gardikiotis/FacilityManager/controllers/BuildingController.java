@@ -1,50 +1,50 @@
 package com.gardikiotis.FacilityManager.controllers;
 
-import com.gardikiotis.FacilityManager.models.Company;
+import com.gardikiotis.FacilityManager.models.Building;
 import com.gardikiotis.FacilityManager.responses.Error;
-import com.gardikiotis.FacilityManager.responses.CompanyResponse;
+import com.gardikiotis.FacilityManager.responses.BuildingResponse;
 import com.gardikiotis.FacilityManager.responses.GenericResponse;
-import com.gardikiotis.FacilityManager.services.CompanyService;
+import com.gardikiotis.FacilityManager.services.BuildingService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-public class CompanyController {
+public class BuildingController {
 
 
-    private CompanyService service;
+    private BuildingService service;
 
-    public CompanyController(CompanyService service){
+    public BuildingController(BuildingService service){
         this.service=service;
     }
 
-    @GetMapping("/allCompanies")
-    public ResponseEntity getAllCompanies() {
-        if (service.getAllCompanies().getError()!= null) {
+    @GetMapping("/allBuildings")
+    public ResponseEntity getAllBuildings() {
+        if (service.getAllBuildings().getError()!= null) {
             return new ResponseEntity(
-                    service.getAllCompanies().getError(),
+                    service.getAllBuildings().getError(),
                     null,
                     HttpStatus.INTERNAL_SERVER_ERROR);
         }
         return new ResponseEntity<>(
-                service.getAllCompanies().getData(),
+                service.getAllBuildings().getData(),
                 null,
                 HttpStatus.OK);
     }
 
-    @PostMapping("/createCompany")
-    public ResponseEntity createCompany(@RequestBody Company company){
-        GenericResponse<CompanyResponse> response= service.createCompany(company);
+    @PostMapping("/createBuilding")
+    public ResponseEntity createBuilding(@RequestBody Building Building){
+        GenericResponse<BuildingResponse> response= service.createBuilding(Building);
         if(response.getError()!=null){
             return new ResponseEntity<>(response.getError(),null,HttpStatus.INTERNAL_SERVER_ERROR);
         }
         return new ResponseEntity<>(response.getData(),null,HttpStatus.CREATED);
     }
 
-    @PatchMapping("/updateCompany/{companyId}")
-    public ResponseEntity updateCompany(@PathVariable long companyId , @RequestBody Company company){
-        GenericResponse<CompanyResponse> response = service.updateCompany(companyId, company);
+    @PatchMapping("/updateBuilding/{BuildingId}")
+    public ResponseEntity updateBuilding(@PathVariable long BuildingId , @RequestBody Building Building){
+        GenericResponse<BuildingResponse> response = service.updateBuilding(BuildingId, Building);
         if(response.getError()!=null){
             return new ResponseEntity<>(response.getError(),null,HttpStatus.INTERNAL_SERVER_ERROR);
         }

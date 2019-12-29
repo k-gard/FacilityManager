@@ -1,10 +1,13 @@
 package com.gardikiotis.FacilityManager.responses;
 
+import org.springframework.stereotype.Component;
+
+
 public class CompanyResponse {
     private long id;
     private String name;
 
-    public CompanyResponse(Long id, String name) {
+    public CompanyResponse(long id, String name) {
         this.id = id;
         this.name = name;
     }
