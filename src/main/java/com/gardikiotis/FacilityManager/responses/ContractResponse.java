@@ -3,20 +3,23 @@ package com.gardikiotis.FacilityManager.responses;
 import com.gardikiotis.FacilityManager.models.Contractor;
 
 import javax.persistence.ManyToOne;
+import java.time.LocalDate;
+import java.util.Collection;
 import java.util.Date;
+import java.util.Set;
 
 public class ContractResponse {
     private long id ;
-    private Contractor Contractor1;
-    private Contractor Contractor2 ;
-    private Date StartingDate ;
-    private Date EndingDate ;
+    private Set<Contractor> Contractors;// =new Contractor[2];
+   // private Contractor Contractor2 ;
+    private LocalDate StartingDate ;
+    private LocalDate EndingDate ;
     private long AwardAmount;
 
-    public ContractResponse(long id, Contractor contractor1, Contractor contractor2, Date startingDate, Date endingDate, long awardAmount) {
+    public ContractResponse(long id, Set<Contractor> contractors,/* Contractor contractor2,*/ LocalDate startingDate, LocalDate endingDate, long awardAmount) {
         this.id = id;
-        Contractor1 = contractor1;
-        Contractor2 = contractor2;
+        Contractors = contractors;
+       // Contractor2 = contractor2;
         StartingDate = startingDate;
         EndingDate = endingDate;
         AwardAmount = awardAmount;
@@ -30,35 +33,38 @@ public class ContractResponse {
         this.id = id;
     }
 
-    public Contractor getContractor1() {
+ /*   public Contractor getContractor1() {
         return Contractor1;
     }
 
     public void setContractor1(Contractor contractor1) {
         Contractor1 = contractor1;
     }
+*/
 
-    public Contractor getContractor2() {
-        return Contractor2;
+    public Set<Contractor> getContractors() {
+        return Contractors;
     }
 
-    public void setContractor2(Contractor contractor2) {
-        Contractor2 = contractor2;
+    public void setContractors(Set<Contractor> contractors) {
+        Contractors = contractors;
     }
 
-    public Date getStartingDate() {
+
+
+    public LocalDate getStartingDate() {
         return StartingDate;
     }
 
-    public void setStartingDate(Date startingDate) {
+    public void setStartingDate(LocalDate startingDate) {
         StartingDate = startingDate;
     }
 
-    public Date getEndingDate() {
+    public LocalDate getEndingDate() {
         return EndingDate;
     }
 
-    public void setEndingDate(Date endingDate) {
+    public void setEndingDate(LocalDate endingDate) {
         EndingDate = endingDate;
     }
 

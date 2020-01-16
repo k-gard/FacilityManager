@@ -1,9 +1,6 @@
 package com.gardikiotis.FacilityManager.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Company {
@@ -17,6 +14,13 @@ public class Company {
     private String addressPostCode ;
     private long phoneNumber ;
     private String email;
+    @OneToOne
+    @JoinTable(name = "Company_contractor",
+            joinColumns =
+                    { @JoinColumn(name = "company_id", referencedColumnName = "id") },
+            inverseJoinColumns =
+                    { @JoinColumn(name = "contractor_id", referencedColumnName = "id") })
+    Contractor contractor;
 
     public Company(String name, long afm, String addressStreet, String addressNumber, String addressPostCode, long phoneNumber, String email) {
         this.name = name;
@@ -34,6 +38,14 @@ public class Company {
     public Company(String name, long afm) {
         this.name = name;
         this.afm = afm;
+    }
+
+    public Contractor getContractor() {
+        return contractor;
+    }
+
+    public void setContractor(Contractor contractor) {
+        this.contractor = contractor;
     }
 
     public long getId() {

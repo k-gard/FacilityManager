@@ -11,8 +11,9 @@ public class ContractMapper {
  public ContractResponse mapContractToContractResponse(Contract contract) {
      return new ContractResponse(
              contract.getId(),
-             contract.getContractor1(),
-             contract.getContractor2(),
+             contract.getContractors(),
+           /*  contract.getContractor1(),
+             contract.getContractor2(),*/
              contract.getStartingDate(),
              contract.getEndingDate(),
              contract.getAwardAmount()
